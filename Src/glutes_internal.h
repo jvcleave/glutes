@@ -39,9 +39,10 @@
  */
 #if !defined(_WIN32)
 #   define  TARGET_HOST_UNIX_X11    1
+#   define  TARGET_HOST_UNIX_NO_X11    0
 #   define  TARGET_HOST_WIN32       0
 #   define  USE_GLMENU
-#   define  USE_EGL
+#   define  USE_EGL 0
 #else
 #   define  TARGET_HOST_UNIX_X11    0
 #   define  TARGET_HOST_WIN32       1
@@ -84,8 +85,8 @@
 #include <stdlib.h>
 #include <assert.h>
 #include <stdarg.h>
-#if TARGET_HOST_UNIX_X11
-#warning "JVC USING TARGET_HOST_UNIX_X11"
+#if TARGET_HOST_UNIX_NO_X11
+#warning "JVC USING TARGET_HOST_UNIX_NO_X11"
 #include <unistd.h>
 #include <sys/time.h>
 #endif
@@ -103,6 +104,7 @@
     #include <X11/extensions/xf86vmode.h>
     #endif
 #endif
+
 
 /*
  * Microsoft VisualC++ 5.0's <math.h> does not define the PI
@@ -363,7 +365,10 @@ typedef EGLContext	SFG_WindowContextType ;
 #endif
 
 #if TARGET_HOST_UNIX_NO_X11
-
+#warning "JVC using TARGET_HOST_UNIX_NO_X11"
+typedef Window		SFG_WindowHandleType ;
+typedef EGLContext	SFG_WindowContextType ;
+typedef long		DWORD ;
 #endif
 /*
  * A window and its OpenGL context. The contents of this structure

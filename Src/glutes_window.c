@@ -71,7 +71,7 @@ extern void __glCreateContext(SFG_Window* w);
  * Chooses a visual basing on the current display mode settings
  */
 #if TARGET_HOST_UNIX_X11
-
+//JVC not sure why the EGL calls are under this :/
 /*
  * Why is there a semi-colon in this #define?  The code
  * that uses the macro seems to always add more semicolons...
