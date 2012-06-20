@@ -381,7 +381,7 @@ int main(int argc, char **argv)
 	
 	glutInitWindowSize(SCREEN_WIDTH, SCREEN_HEIGHT); 
     glutCreateWindow("Hello GLUT|ES"); 
-	    
+	/*    
     glutDisplayFunc(display); 
     glutIdleFunc(idle); 
     glutKeyboardFunc(keyboard); 
@@ -390,7 +390,7 @@ int main(int argc, char **argv)
 	glutMouseFunc(mouse);
 	   
 	glutReshapeFunc(reshape); 
-/*	
+	
 	// Create menu
 	submenu1 = glutCreateMenu(menu); 
 	glutAddMenuEntry("Show",		10);

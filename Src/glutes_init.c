@@ -100,6 +100,7 @@ void __glInit()
 {
 	EGLint majorVersion;
 	EGLint minorVersion;
+	printf("majorVersion %d minorVersion %d \n", majorVersion, minorVersion);
 //	EGLConfig cfg;
 	/* EGL Setup */
 #ifdef _WIN32_WCE
@@ -118,7 +119,13 @@ void __glInit()
 #endif
 
 	if(!eglInitialize(fgDisplay.eglDisplay, &majorVersion, &minorVersion))
+	{
 		fgError("Unable to initialize OpenGL|ES!");
+	}else
+	{
+		printf("SHOULD SEE SOMETHING \n");
+	}
+	printf("END __glInit \n");	
 	
 }
 

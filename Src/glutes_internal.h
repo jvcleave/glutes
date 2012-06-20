@@ -85,6 +85,7 @@
 #include <assert.h>
 #include <stdarg.h>
 #if TARGET_HOST_UNIX_X11
+#warning "JVC USING TARGET_HOST_UNIX_X11"
 #include <unistd.h>
 #include <sys/time.h>
 #endif
