@@ -113,20 +113,20 @@ void __glInit()
 		return;
 
 #if TARGET_HOST_UNIX_X11
+#warning TARGET_HOST_UNIX_X11 is defined
 	fgDisplay.eglDisplay = eglGetDisplay((NativeDisplayType)fgDisplay.Display);
+	
 #else
+#warning problem: TARGET_HOST_UNIX_X11 is NOT defined
 	fgDisplay.eglDisplay = eglGetDisplay((NativeDisplayType)EGL_DEFAULT_DISPLAY);
 #endif
 
 	if(!eglInitialize(fgDisplay.eglDisplay, &majorVersion, &minorVersion))
 	{
-		fgError("Unable to initialize OpenGL|ES!");
-	}else
-	{
-		printf("SHOULD SEE SOMETHING \n");
+		int errorCode = eglGetError();
+		fgError("Unable to initialize OpenGL|ES!, eglGetError code is %d", errorCode);
 	}
-	printf("END __glInit \n");	
-	
+// http://www.khronos.org/opengles/documentation/opengles1_0/html/eglInitialize.html	
 }
 
 void __glDestroy()

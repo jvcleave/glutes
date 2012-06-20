@@ -362,6 +362,9 @@ typedef EGLContext	SFG_WindowContextType ;
 
 #endif
 
+#if TARGET_HOST_UNIX_NO_X11
+
+#endif
 /*
  * A window and its OpenGL context. The contents of this structure
  * are highly dependant on the target operating system we aim at...
